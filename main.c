@@ -15,6 +15,7 @@ int main() {
     switch (child = fork()){
         case -1:
             printf("Неудалось создать процесс\n");
+            break;
 
         case 0:
             hook = atexit(doSumpfing);
@@ -29,6 +30,7 @@ int main() {
             printf("CHILD: Выход!\n");
 
             exit(0);
+            break;
 
         default:
             atexit(doSumpfing);
