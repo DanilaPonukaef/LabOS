@@ -38,7 +38,7 @@ int main() {
             printf("PARENT: Мой PID %d\n", getpid());
             printf("PARENT: PID моего протомка %d\n", child);
             printf("PARENT: Жду пока дочерний процесс не вызовет exit()...\n");wait(0);
-            printf("PARENT: Мой потомок завершиляс со значением %d\n", WEXITSTATUS(0));
+            printf("PARENT: Мой потомок завершиляс со значением %d\n", WEXITSTATUS());
             printf("PARENT: Выход!\n");
 
             exit(0);
