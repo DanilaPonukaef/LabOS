@@ -38,7 +38,7 @@ int main() {
     struct group *grp;
     char*      bufTime;
 
-    dir = opendir("/home/danila/linux/OS/labs/Lab2(MyLS)");
+    dir = opendir(".");
     if(!dir){
         perror("diropen");
         exit(1);
