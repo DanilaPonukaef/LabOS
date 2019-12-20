@@ -52,7 +52,7 @@ int main() {
         grp = getgrgid(info.st_gid);
         bufTime = set_time((struct tm *) &info.st_ctime);
         fun(info.st_mode, mode);
-        printf("%s %ld %s %s %ld %s %s\n", mode,info.st_nlink, pwd->pw_name, grp->gr_name, info.st_size, bufTime, entry->d_name);
+        printf("%s %hu %s %s %lld %s %s\n", mode,info.st_nlink, pwd->pw_name, grp->gr_name, info.st_size, bufTime, entry->d_name);
     }
     closedir(dir);
 
