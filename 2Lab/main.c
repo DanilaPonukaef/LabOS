@@ -9,7 +9,7 @@
 #include <time.h>
 #include <string.h>
 
-void strmode(mode_t mode, char* buf){
+void fun(mode_t mode, char* buf){
     const char chars[] = "rwxrwxrwx";
     for(size_t i = 0; i < 9; i++){
         buf[i] = (mode & (1 << (8 - i))) ? chars[i] : '-';
@@ -50,8 +50,8 @@ int main() {
         stat(entry->d_name, &info);
         pwd = getpwuid(info.st_uid);
         grp = getgrgid(info.st_gid);
-        bufTime = set_time((struct tm *) &info.st_ctim);
-        strmode(info.st_mode, mode);
+        bufTime = set_time((struct tm *) &info.st_ctime);
+        fun(info.st_mode, mode);
         printf("%s %ld %s %s %ld %s %s\n", mode,info.st_nlink, pwd->pw_name, grp->gr_name, info.st_size, bufTime, entry->d_name);
     }
     closedir(dir);
