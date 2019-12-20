@@ -21,7 +21,7 @@ char* set_time(struct tm *u)
 {
     char s[40];
     char *tmp;
-    for (int i = 0; i<40; i++) s[i] = 0;
+    memset( s, 0, 40 );
     u = localtime((const time_t *) u);
     int length = strftime(s, 40, "%d.%m.%Y %H:%M:%S, %A", u);
     tmp = (char*)malloc(sizeof(s));
